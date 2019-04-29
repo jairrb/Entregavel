@@ -5,9 +5,9 @@ import java.util.Objects;
 public class Aluno {
     private String nome;
     private String sobrenome;
-    private int ra;
+    private Integer ra;
 
-    public Aluno(String nome, String sobrenome, int ra) {
+    public Aluno(String nome, String sobrenome, Integer ra) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.ra = ra;
@@ -32,7 +32,7 @@ public class Aluno {
         this.sobrenome = sobrenome;
     }
 
-    public int getRa() {
+    public Integer getRa() {
         return ra;
     }
 

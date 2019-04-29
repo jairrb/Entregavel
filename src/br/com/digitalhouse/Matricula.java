@@ -8,6 +8,7 @@ public class Matricula {
     private Date dataMatricula;
 
     public Matricula(Aluno aluno, Curso curso) {
+        curso.adicionarUmAluno(aluno);
         this.aluno = aluno;
         this.curso = curso;
         this.dataMatricula = new Date();

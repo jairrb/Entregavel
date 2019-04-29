@@ -12,7 +12,7 @@ public class Curso {
     private int qtdeMaxAluno;
     List<Aluno> alunos = new ArrayList<>();
 
-    public Curso(String nome, Integer codigo,int qtdeMaxAluno) {
+    public Curso(String nome, Integer codigo, int qtdeMaxAluno) {
         this.nome = nome;
         this.codigo = codigo;
         this.qtdeMaxAluno = qtdeMaxAluno;
@@ -84,7 +84,7 @@ public class Curso {
     }
 
     public Boolean adicionarUmAluno(Aluno umAluno) {
-        if (alunos.size() < qtdeMaxAluno) {
+        if (validaQtdMax()) {
             alunos.add(umAluno);
             return true;
         } else {
@@ -98,6 +98,15 @@ public class Curso {
                 alunos.remove(i);
                 break;
             }
+        }
+    }
+
+    public boolean validaQtdMax(){
+        if (alunos.size() >= qtdeMaxAluno){
+            System.out.println("Quantidade de alunos maxima para curso "+nome+" já foi atingida!");
+            return false;
+        }else {
+            return true;
         }
     }
 }

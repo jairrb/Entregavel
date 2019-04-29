@@ -3,8 +3,8 @@ package br.com.digitalhouse;
 public class ProfessorTitular extends Professor {
     private String especialidade;
 
-    public ProfessorTitular(String nome, String sobrenome, int tempoCasa, int codigo, String especialidade) {
-        super(nome, sobrenome, tempoCasa, codigo);
+    public ProfessorTitular(String nome, String sobrenome, int codigo, String especialidade) {
+        super(nome, sobrenome, 0, codigo);
         this.especialidade = especialidade;
     }
 
