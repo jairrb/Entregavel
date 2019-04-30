@@ -9,6 +9,7 @@ public class DigitalHouseManager {
     List<Curso> cursos = new ArrayList<>();
     List<Matricula> matriculas = new ArrayList<>();
 
+    /** Metodo para registro de curso*/
     public void registrarCurso(String nome, Integer codigoCurso,
                                Integer quantidadeMaximaDeAlunos){
 
@@ -22,11 +23,9 @@ public class DigitalHouseManager {
             cursos.add(curso);
             System.out.println("--- Curso cadastrado com sucesso.\n");
         }
-
-
-
     }
 
+    /** Metodo para exclusao de curso*/
     public void excluirCurso(Integer codigoCurso){
         int pos = posicaoList(cursos,codigoCurso,1);
         System.out.println("--- EXCLUINDO CURSO ---");
@@ -38,9 +37,9 @@ public class DigitalHouseManager {
             System.out.println("--- ERRO EXCLUSAO CURSO"+
                     "\n Codigo de curso não encontrado!\n");
         }
-
     }
 
+    /** Metodo para registro de professor adjunto*/
     public void registrarProfessorAdjunto(String nome, String sobrenome,
                                           Integer codigoProfessor, Integer quantidadeDeHoras){
         System.out.println("--- REGISTRANDO PROFESSOR ADJUNTO ---");
@@ -53,9 +52,9 @@ public class DigitalHouseManager {
             professores.add(professorAdjunto);
             System.out.println("--- Professor adjunto cadastrado com sucesso.\n");
         }
-
     }
 
+    /** Metodo para registro de professor titular*/
     public void registrarProfessorTitular(String nome, String sobrenome,
                                           Integer codigoProfessor, String especialidade){
             System.out.println("--- Registrando Professor Titular ---");
@@ -72,6 +71,7 @@ public class DigitalHouseManager {
 
     }
 
+    /** Metodo para exclusão de professor */
     public void excluirProfessor(Integer codigoProfessor){
         int pos = posicaoList(professores,codigoProfessor,2);
 
@@ -84,10 +84,9 @@ public class DigitalHouseManager {
             System.out.println("--- ERRO EXCLUSAO CURSO"+
                     "\n Codigo de professor não encontrado!\n");
         }
-
-
     }
 
+    /** Metodo para alocação de professores ao curso previamente cadastrado*/
     public void alocarProfessores(Integer codigoCurso, Integer codigoProfessorTitular,
                                   Integer codigoProfessorAdjunto){
             int posCurso = posicaoList(cursos,codigoCurso,1);
@@ -114,6 +113,7 @@ public class DigitalHouseManager {
 
     }
 
+    /** Metodo para matricula inicial do aluno*/
     public void matricularAluno(String nome, String sobrenome,
                                 Integer codigoAluno){
         System.out.println("--- MATRICULANDO ALUNO ---");
@@ -126,9 +126,9 @@ public class DigitalHouseManager {
             alunos.add(aluno);
             System.out.println("--- Curso cadastrado com sucesso.\n");
         }
-
     }
 
+    /** Metodo para matricula do aluno ao curso*/
     public void matricularAluno(Integer codigoAluno, Integer codigoCurso){
         int posCurso = posicaoList(cursos,codigoCurso,1);
         int posAluno = posicaoList(alunos,codigoAluno,3);
@@ -150,6 +150,7 @@ public class DigitalHouseManager {
 
     }
 
+    /** Metodo para retorno de posição em uma lista de acordo com o codigo da busca*/
     public int posicaoList(List lista, Integer codigoBusca, int tipoClasse){
         for (int i = 0; i < lista.size(); i++) {
 
