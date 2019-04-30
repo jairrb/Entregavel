@@ -45,7 +45,7 @@ public class Aluno {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Aluno aluno = (Aluno) o;
-        return ra == aluno.ra;
+        return ra == aluno.getRa();
     }
 
     @Override

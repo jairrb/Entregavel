@@ -11,7 +11,7 @@ public class Principal {
         digitalHouseManager.registrarProfessorTitular("Ken","Thompson",34,"Unix");
 
         digitalHouseManager.registrarCurso("Full Stack", 20001,3);
-        digitalHouseManager.registrarCurso("Android", 20002,2);
+        digitalHouseManager.registrarCurso("Android", 20001,2);
 
 
         digitalHouseManager.alocarProfessores(20001,12,56);
@@ -21,11 +21,13 @@ public class Principal {
         digitalHouseManager.matricularAluno("ANGELA","RIBEIRO", 34 );
         digitalHouseManager.matricularAluno("EMILY","VITORIA", 56 );
 
-        digitalHouseManager.matricularAluno(12,2001);
-        digitalHouseManager.matricularAluno(34,2001);
+        digitalHouseManager.matricularAluno(12,20001);
+        digitalHouseManager.matricularAluno(34,20001);
 
-        digitalHouseManager.matricularAluno(12,2002);
-        digitalHouseManager.matricularAluno(34,2002);
-        digitalHouseManager.matricularAluno(56,2002);
+        digitalHouseManager.matricularAluno(12,20002);
+        digitalHouseManager.matricularAluno(34,20002);
+        digitalHouseManager.matricularAluno(56,20002);
+
+        digitalHouseManager.excluirCurso(20001);
     }
 }

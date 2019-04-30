@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Curso {
+public class Curso<contains> {
     private String nome;
     private Integer codigo;
     private ProfessorTitular professorTitular;
     private ProfessorAdjunto professorAdjunto;
     private int qtdeMaxAluno;
+
     List<Aluno> alunos = new ArrayList<>();
 
     public Curso(String nome, Integer codigo, int qtdeMaxAluno) {
@@ -29,7 +30,7 @@ public class Curso {
         this.nome = nome;
     }
 
-    public int getCodigo() {
+    public Integer getCodigo() {
         return codigo;
     }
 
@@ -74,7 +75,7 @@ public class Curso {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Curso curso = (Curso) o;
-        return codigo == curso.codigo;
+        return codigo == curso.getCodigo();
     }
 
     @Override

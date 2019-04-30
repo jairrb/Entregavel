@@ -6,9 +6,9 @@ public class Professor {
     private String nome;
     private String sobrenome;
     private int tempoCasa;
-    private int codigo;
+    private Integer codigo;
 
-    public Professor(String nome, String sobrenome, int tempoCasa, int codigo) {
+    public Professor(String nome, String sobrenome, int tempoCasa, Integer codigo) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.tempoCasa = tempoCasa;
@@ -42,7 +42,7 @@ public class Professor {
         this.tempoCasa = tempoCasa;
     }
 
-    public int getCodigo() {
+    public Integer getCodigo() {
         return codigo;
     }
 
@@ -55,7 +55,7 @@ public class Professor {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Professor professor = (Professor) o;
-        return codigo == professor.codigo;
+        return codigo == professor.getCodigo();
     }
 
     @Override
