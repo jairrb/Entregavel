@@ -1,7 +1,6 @@
 package br.com.digitalhouse;
 
 import java.util.Objects;
-import java.util.Random;
 
 public class Aluno implements Estudioso {
     private String nome;
@@ -61,7 +60,7 @@ public class Aluno implements Estudioso {
     @Override
     public float getNivelDeEstudo() {
 
-        return  (Objects.hash(nome.substring(1,1))/4);
+        return (Objects.hash(nome.substring(1, 1)) / 4);
 
     }
 }

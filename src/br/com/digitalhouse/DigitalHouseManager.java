@@ -199,9 +199,9 @@ public class DigitalHouseManager {
                     System.out.println(cursos.get(posCurso).toString());
                 }
             } catch (DHException e) {
-                System.out.println( "Vir ao co-learning");
+                System.out.println("Vir ao co-learning");
             } catch (OtherException e) {
-                System.out.println( "Falar com os alunos");
+                System.out.println("Falar com os alunos");
             }
         }
     }
