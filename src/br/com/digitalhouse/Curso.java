@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Curso<contains> {
+public class Curso {
     private String nome;
     private Integer codigo;
     private ProfessorTitular professorTitular;
@@ -71,6 +71,16 @@ public class Curso<contains> {
     }
 
     @Override
+    public String toString() {
+        return "CURSO"+
+                "\nNome: " + nome +
+                "\nCodigo: " + codigo +
+                "\nQuantidade Atual Alunos: " + alunos.size() +
+                "\nQuantidade Maxima Alunos: " + qtdeMaxAluno +"\n";
+
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -104,7 +114,8 @@ public class Curso<contains> {
 
     public boolean validaQtdMax(){
         if (alunos.size() >= qtdeMaxAluno){
-            System.out.println("Quantidade de alunos maxima para curso "+nome+" já foi atingida!");
+            System.out.println(this.toString());
+            System.out.println("Quantidade de alunos maxima foi atingida!");
             return false;
         }else {
             return true;

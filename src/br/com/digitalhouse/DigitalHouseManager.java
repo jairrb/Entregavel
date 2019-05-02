@@ -13,7 +13,7 @@ public class DigitalHouseManager {
     public void registrarCurso(String nome, Integer codigoCurso,
                                Integer quantidadeMaximaDeAlunos){
 
-        System.out.println("--- REGISTRANDO CURSO ---");
+        System.out.println("|--- CADASTRO DE CURSO ---|");
         Curso curso = new Curso(nome, codigoCurso, quantidadeMaximaDeAlunos);
 
         if ((cursos.contains(curso) )) {
@@ -21,14 +21,15 @@ public class DigitalHouseManager {
                     "\n Codigo de curso já cadastrado!\n");
         }else{
             cursos.add(curso);
-            System.out.println("--- Curso cadastrado com sucesso.\n");
+            System.out.println("--- Curso cadastrado com sucesso.");
+            System.out.println(curso.toString());
         }
     }
 
     /** Metodo para exclusao de curso*/
     public void excluirCurso(Integer codigoCurso){
         int pos = posicaoList(cursos,codigoCurso,1);
-        System.out.println("--- EXCLUINDO CURSO ---");
+        System.out.println("|--- EXCLUSAO CURSO ---|");
         if (pos >= 0 ) {
             cursos.remove(pos);
             System.out.println("--- Curso informado excluido com sucesso.\n");
@@ -42,22 +43,23 @@ public class DigitalHouseManager {
     /** Metodo para registro de professor adjunto*/
     public void registrarProfessorAdjunto(String nome, String sobrenome,
                                           Integer codigoProfessor, Integer quantidadeDeHoras){
-        System.out.println("--- REGISTRANDO PROFESSOR ADJUNTO ---");
+        System.out.println("|--- CADASTRO PROFESSOR ADJUNTO ---|");
         ProfessorAdjunto professorAdjunto = new ProfessorAdjunto(nome,sobrenome,codigoProfessor,quantidadeDeHoras);
 
         if ((professores.contains(professorAdjunto) )) {
             System.out.println("--- ERRO CADASTRO PROFESSOR ADJUNTO"+
-                    "\n Codigo de professor adjunto já cadastrado!\n");
+                    "\n Codigo "+codigoProfessor+" de professor adjunto já cadastrado!\n");
         }else {
             professores.add(professorAdjunto);
-            System.out.println("--- Professor adjunto cadastrado com sucesso.\n");
+            System.out.println("--- Professor adjunto cadastrado com sucesso.");
+            System.out.println(professorAdjunto.toString());
         }
     }
 
     /** Metodo para registro de professor titular*/
     public void registrarProfessorTitular(String nome, String sobrenome,
                                           Integer codigoProfessor, String especialidade){
-            System.out.println("--- Registrando Professor Titular ---");
+            System.out.println("|--- CADASTRO PROFESSOR TITULAR  ---|");
             ProfessorTitular professorTitular = new ProfessorTitular(nome,sobrenome,codigoProfessor,especialidade);
 
 
@@ -66,7 +68,8 @@ public class DigitalHouseManager {
                     "\n Codigo de professor adjunto já cadastrado!\n");
         }else {
             professores.add(professorTitular);
-            System.out.println("--- Professor titular cadastrado com sucesso.\n");
+            System.out.println("--- Professor titular cadastrado com sucesso.");
+            System.out.println(professorTitular.toString());
         }
 
     }
@@ -75,13 +78,13 @@ public class DigitalHouseManager {
     public void excluirProfessor(Integer codigoProfessor){
         int pos = posicaoList(professores,codigoProfessor,2);
 
-        System.out.println("--- EXCLUINDO PROFESSOR ---");
+        System.out.println("|--- EXCLUSAO PROFESSOR ---|");
         if (pos >= 0 ) {
             professores.remove(pos);
             System.out.println("--- Curso informado excluido com sucesso.\n");
         } else {
 
-            System.out.println("--- ERRO EXCLUSAO CURSO"+
+            System.out.println("--- ERRO EXCLUSAO PROFESSOR"+
                     "\n Codigo de professor não encontrado!\n");
         }
     }
@@ -92,7 +95,7 @@ public class DigitalHouseManager {
             int posCurso = posicaoList(cursos,codigoCurso,1);
             int posProfT = posicaoList(professores,codigoProfessorTitular,2);
             int posProfA = posicaoList(professores,codigoProfessorAdjunto,2);
-            System.out.println("--- ALOCANDO PROFESSORES ---");
+            System.out.println("|--- ALOCACAO DE PROFESSORES ---|");
 
             if (posCurso == -1){
                 System.out.println("--- ERRO ALOCAÇÃO PROFESSOR"+
@@ -105,10 +108,11 @@ public class DigitalHouseManager {
                 System.out.println("--- ERRO ALOCAÇÃO PROFESSOR"+
                         "\n Codigo de professor adjunto não encontrado!\n");
             }else {
+                System.out.println(cursos.get(posCurso).toString());
                 cursos.get(posCurso).setProfessorTitular((ProfessorTitular) professores.get(posProfT));
-                System.out.println("Professor Titular: "+professores.get(posProfT).getNome()+" alocado.");
+                System.out.println("Professor Titular: "+professores.get(posProfT).getNome());
                 cursos.get(posCurso).setProfessorAdjunto((ProfessorAdjunto) professores.get(posProfA));
-                System.out.println("Professor Adjunto: "+professores.get(posProfA).getNome()+" alocado.|\n");
+                System.out.println("Professor Adjunto: "+professores.get(posProfA).getNome()+"\n");
             }
 
     }
@@ -116,7 +120,7 @@ public class DigitalHouseManager {
     /** Metodo para matricula inicial do aluno*/
     public void matricularAluno(String nome, String sobrenome,
                                 Integer codigoAluno){
-        System.out.println("--- MATRICULANDO ALUNO ---");
+        System.out.println("|--- CADASTRO ALUNO ---|");
         Aluno aluno = new Aluno(nome,sobrenome,codigoAluno);
 
         if ((alunos.contains(aluno) )) {
@@ -124,7 +128,8 @@ public class DigitalHouseManager {
                     "\n Codigo de aluno já cadastrado!\n");
         }else{
             alunos.add(aluno);
-            System.out.println("--- Curso cadastrado com sucesso.\n");
+            System.out.println("--- Aluno matriculado com sucesso.");
+            System.out.println(aluno.toString());
         }
     }
 
@@ -133,6 +138,7 @@ public class DigitalHouseManager {
         int posCurso = posicaoList(cursos,codigoCurso,1);
         int posAluno = posicaoList(alunos,codigoAluno,3);
 
+        System.out.println("|--- MATRICULA ALUNO AO CURSO ---|");
         if (posCurso == -1) {
             System.out.println("--- ERRO MATRICULA ALUNO" +
                     "\n Codigo de curso não encontrado!\n");
@@ -140,18 +146,45 @@ public class DigitalHouseManager {
             System.out.println("--- ERRO MATRICULA ALUNO" +
                     "\n Codigo de aluno(a) não encontrado!\n");
         } else if (cursos.get(posCurso).validaQtdMax()) {
-            System.out.println("--- MATRICULANDO AO CURSO ---");
             matriculas.add(new Matricula(alunos.get(posAluno), cursos.get(posCurso)));
 
-            System.out.println( "Aluno(a): "+alunos.get(posAluno).getNome()+
-                    " foi matriculado(a) ao curso "+ cursos.get(posCurso).getNome()+"com sucesso!\n");
+            System.out.println( "Aluno(a) matriculado(a) ao curso com sucesso!");
+            System.out.println(alunos.get(posAluno).toString());
+            System.out.println(cursos.get(posCurso).toString());
+
         }
-
-
     }
 
+
+    /** Metodo para matricula do aluno ao curso*/
+    public void consultaCursoMatriculado(Integer codigoAluno){
+        int posAluno = posicaoList(alunos,codigoAluno,3);
+        boolean matriculado = false;
+
+        System.out.println("|--- BUSCA CURSO MATRICULADO ---|");
+        if (posAluno  == -1){
+            System.out.println("--- ERRO MATRICULA ALUNO" +
+                    "\n Codigo de aluno(a) não encontrado!\n");
+        }else{
+            for (Matricula matricula : matriculas) {
+                if (matricula.getAluno().equals(alunos.get(posAluno))){
+                    System.out.println(matricula.getCurso().toString());
+                    matriculado = true;
+                }
+            }
+
+            if (!matriculado){
+                System.out.println("--- ALUNO NAO MATRICULADO" +
+                    "\nAluno(a) não esta matriculado em nenhum curso!");
+                System.out.println(alunos.get(posAluno).toString());
+            }
+
+        }
+    }
+
+
     /** Metodo para retorno de posição em uma lista de acordo com o codigo da busca*/
-    public int posicaoList(List lista, Integer codigoBusca, int tipoClasse){
+    private int posicaoList(List lista, Integer codigoBusca, int tipoClasse){
         for (int i = 0; i < lista.size(); i++) {
 
             if (tipoClasse == 1){
