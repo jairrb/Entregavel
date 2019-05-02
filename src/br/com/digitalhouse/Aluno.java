@@ -1,7 +1,5 @@
 package br.com.digitalhouse;
 
-import java.util.Objects;
-
 public class Aluno {
     private String nome;
     private String sobrenome;
@@ -45,7 +43,7 @@ public class Aluno {
         return "ALUNO" +
                 "\nRA: " + ra +
                 "\nNome: " + nome +
-                "\nSobrenome: " + sobrenome+"\n";
+                "\nSobrenome: " + sobrenome + "\n";
 
     }
 
@@ -55,11 +53,5 @@ public class Aluno {
         if (o == null || getClass() != o.getClass()) return false;
         Aluno aluno = (Aluno) o;
         return ra == aluno.getRa();
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(ra);
     }
 }

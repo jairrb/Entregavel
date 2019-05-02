@@ -46,5 +46,4 @@ public class Matricula {
         Matricula matricula = (Matricula) o;
         return Objects.equals(aluno, matricula.aluno);
     }
-
 }

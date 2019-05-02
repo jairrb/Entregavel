@@ -2,7 +2,6 @@ package br.com.digitalhouse;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Curso {
     private String nome;
@@ -72,11 +71,11 @@ public class Curso {
 
     @Override
     public String toString() {
-        return "CURSO"+
+        return "CURSO" +
                 "\nNome: " + nome +
                 "\nCodigo: " + codigo +
                 "\nQuantidade Atual Alunos: " + alunos.size() +
-                "\nQuantidade Maxima Alunos: " + qtdeMaxAluno +"\n";
+                "\nQuantidade Maxima Alunos: " + qtdeMaxAluno + "\n";
 
     }
 
@@ -88,11 +87,6 @@ public class Curso {
         return codigo == curso.getCodigo();
     }
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(codigo);
-    }
 
     public Boolean adicionarUmAluno(Aluno umAluno) {
         if (validaQtdMax()) {
@@ -112,12 +106,12 @@ public class Curso {
         }
     }
 
-    public boolean validaQtdMax(){
-        if (alunos.size() >= qtdeMaxAluno){
+    public boolean validaQtdMax() {
+        if (alunos.size() >= qtdeMaxAluno) {
             System.out.println(this.toString());
             System.out.println("Quantidade de alunos maxima foi atingida!");
             return false;
-        }else {
+        } else {
             return true;
         }
     }

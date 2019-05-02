@@ -1,7 +1,5 @@
 package br.com.digitalhouse;
 
-import java.util.Objects;
-
 public class Professor {
     private String nome;
     private String sobrenome;
@@ -52,10 +50,10 @@ public class Professor {
 
     @Override
     public String toString() {
-        return  "PROFESSOR"+
+        return "PROFESSOR" +
                 "\nNome: " + nome +
                 "\nSobrenome: " + sobrenome +
-                "\nCodigo: " + codigo+"\n";
+                "\nCodigo: " + codigo + "\n";
 
     }
 
@@ -67,9 +65,4 @@ public class Professor {
         return codigo == professor.getCodigo();
     }
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(codigo);
-    }
 }
