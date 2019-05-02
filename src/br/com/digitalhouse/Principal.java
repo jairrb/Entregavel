@@ -1,7 +1,7 @@
 package br.com.digitalhouse;
 
 public class Principal {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DHException, OtherException {
         DigitalHouseManager digitalHouseManager = new DigitalHouseManager();
 
         digitalHouseManager.registrarProfessorAdjunto("Guido", "Rossum", 56, 10);
@@ -9,7 +9,6 @@ public class Principal {
 
         digitalHouseManager.registrarProfessorAdjunto("Jawed", "Karim", 99, 10);
         digitalHouseManager.excluirProfessor(99);
-
         digitalHouseManager.registrarProfessorTitular("Alan", "Turing", 12, "Criptoanalista ");
         digitalHouseManager.registrarProfessorTitular("Ken", "Thompson", 34, "Unix");
 

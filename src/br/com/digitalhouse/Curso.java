@@ -10,7 +10,7 @@ public class Curso {
     private ProfessorAdjunto professorAdjunto;
     private int qtdeMaxAluno;
 
-    List<Aluno> alunos = new ArrayList<>();
+    List<Estudioso> alunos = new ArrayList<>();
 
     public Curso(String nome, Integer codigo, int qtdeMaxAluno) {
         this.nome = nome;
@@ -61,11 +61,11 @@ public class Curso {
         this.qtdeMaxAluno = qtdeMaxAluno;
     }
 
-    public List<Aluno> getAlunos() {
+    public List<Estudioso> getAlunos() {
         return alunos;
     }
 
-    public void setAlunos(List<Aluno> alunos) {
+    public void setAlunos(List<Estudioso> alunos) {
         this.alunos = alunos;
     }
 
@@ -88,7 +88,7 @@ public class Curso {
     }
 
 
-    public Boolean adicionarUmAluno(Aluno umAluno) {
+    public Boolean adicionarUmAluno(Estudioso umAluno) {
         if (validaQtdMax()) {
             alunos.add(umAluno);
             return true;
@@ -97,7 +97,7 @@ public class Curso {
         }
     }
 
-    public void excluirAluno(Aluno umAluno) {
+    public void excluirAluno(Estudioso umAluno) {
         for (int i = 0; i < alunos.size(); i++) {
             if (alunos.get(i).equals(umAluno)) {
                 alunos.remove(i);

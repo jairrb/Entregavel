@@ -4,18 +4,18 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Matricula {
-    private Aluno aluno;
+    private Estudioso aluno;
     private Curso curso;
     private Date dataMatricula;
 
-    public Matricula(Aluno aluno, Curso curso) {
+    public Matricula(Estudioso aluno, Curso curso) {
         curso.adicionarUmAluno(aluno);
         this.aluno = aluno;
         this.curso = curso;
         this.dataMatricula = new Date();
     }
 
-    public Aluno getAluno() {
+    public Estudioso getAluno() {
         return aluno;
     }
 

@@ -1,6 +1,9 @@
 package br.com.digitalhouse;
 
-public class Aluno {
+import java.util.Objects;
+import java.util.Random;
+
+public class Aluno implements Estudioso {
     private String nome;
     private String sobrenome;
     private Integer ra;
@@ -53,5 +56,12 @@ public class Aluno {
         if (o == null || getClass() != o.getClass()) return false;
         Aluno aluno = (Aluno) o;
         return ra == aluno.getRa();
+    }
+
+    @Override
+    public float getNivelDeEstudo() {
+
+        return  (Objects.hash(nome.substring(1,1))/4);
+
     }
 }

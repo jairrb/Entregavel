@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DigitalHouseManager {
-    List<Aluno> alunos = new ArrayList<>();
+    List<Estudioso> alunos = new ArrayList<>();
     List<Professor> professores = new ArrayList<>();
     List<Curso> cursos = new ArrayList<>();
     List<Matricula> matriculas = new ArrayList<>();
@@ -162,7 +162,7 @@ public class DigitalHouseManager {
     public void matricularAluno(String nome, String sobrenome,
                                 Integer codigoAluno) {
         System.out.println("|--- CADASTRO ALUNO ---|");
-        Aluno aluno = new Aluno(nome, sobrenome, codigoAluno);
+        Estudioso aluno = new Aluno(nome, sobrenome, codigoAluno);
 
         if ((alunos.contains(aluno))) {
             System.out.println("--- ERRO CADASTRO ALUNO" +
@@ -189,12 +189,20 @@ public class DigitalHouseManager {
             System.out.println("--- ERRO MATRICULA ALUNO" +
                     "\n Codigo de aluno(a) não encontrado!\n");
         } else if (cursos.get(posCurso).validaQtdMax()) {
-            matriculas.add(new Matricula(alunos.get(posAluno), cursos.get(posCurso)));
 
-            System.out.println("Aluno(a) matriculado(a) ao curso com sucesso!");
-            System.out.println(alunos.get(posAluno).toString());
-            System.out.println(cursos.get(posCurso).toString());
-
+            DigitalException digitalException = new DigitalException();
+            try {
+                if (digitalException.matriculaDH(alunos.get(posAluno))) {
+                    matriculas.add(new Matricula(alunos.get(posAluno), cursos.get(posCurso)));
+                    System.out.println("Aluno(a) matriculado(a) ao curso com sucesso!");
+                    System.out.println(alunos.get(posAluno).toString());
+                    System.out.println(cursos.get(posCurso).toString());
+                }
+            } catch (DHException e) {
+                System.out.println( "Vir ao co-learning");
+            } catch (OtherException e) {
+                System.out.println( "Falar com os alunos");
+            }
         }
     }
 
